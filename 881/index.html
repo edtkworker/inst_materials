@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A guided summary and ungraded self-check for Chapter 10 of The Instructional Design Knowledge Base.">
+  <title>Chapter 10: The ID Knowledge Base | CI 881</title>
+  <style>
+    :root{color-scheme:light;--paper:#f5f5ee;--white:#fff;--ink:#17332b;--muted:#4a6056;--green:#225c49;--deep:#11382d;--mint:#d6ead8;--soft:#edf5ed;--line:#d4ded3;--control:#819787;--amber:#fff3d9;--brown:#63440f;--focus:#205c9c;--serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',sans-serif;--radius:16px}
+    *,*::before,*::after{box-sizing:border-box}
+    [hidden]{display:none!important}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--sans)}
+    :where(h1,h2,h3,h4,p,dl,dd){margin:0}
+    :where(button,input){font:inherit}
+    button{cursor:pointer} button:disabled{cursor:default}
+    :where(a,button,input,summary):focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+    a{color:var(--green);text-underline-offset:.18em}
+    .wrap{width:min(1100px,calc(100% - 48px));margin-inline:auto}
+    .skip{position:absolute;top:.45rem;left:.45rem;z-index:3;transform:translateY(-180%);padding:.56rem .8rem;background:var(--white);border-radius:9px}
+    .skip:focus{transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+    .mast{display:flex;justify-content:space-between;align-items:center;gap:.55rem;padding-block:14px 12px;font-size:.8rem;font-weight:710}
+    .brand{display:flex;align-items:center;gap:.53rem}
+    .mark{width:28px;height:28px;display:grid;grid-template-columns:repeat(2,5px);grid-template-rows:repeat(2,5px);gap:3px;place-content:center;flex-shrink:0;background:var(--deep);border-radius:7px}
+    .mark i{background:var(--mint);border-radius:1px}
+    .mark i:last-child{opacity:.52}
+    .mast > p:last-child{color:var(--muted)}
+    .hero{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:1.5rem;align-items:end;padding:clamp(20px,4.2vw,43px);border-radius:21px;color:#fafff8;background:var(--deep)}
+    .hero::after{content:'';position:absolute;z-index:-1;right:-130px;top:-103px;width:320px;height:320px;border:1px solid #b8dec42c;border-radius:29%;transform:rotate(30deg);box-shadow:0 0 0 23px #b8dec40c,0 0 0 48px #b8dec408;pointer-events:none}
+    .kicker{color:var(--green);font-size:.73rem;font-weight:760;letter-spacing:.092em;text-transform:uppercase}
+    .hero .kicker{color:#cce9cd}
+    h1,h2,.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.026em}
+    h1{font-size:clamp(2.33rem,6.1vw,4.55rem);line-height:1.02;margin:.33rem 0 .65rem;text-wrap:balance}
+    .hero .intro{max-width:60ch;color:#e1eee2;font-size:1rem}
+    .hero-aside{color:#e1eee2;min-width:0;border-inline-start:1px solid #92bd9e83;padding-inline-start:1rem;font-size:.88rem}
+    .hero-aside p:last-child{margin-top:.39rem}
+    .route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem;margin-block:13px 25px}
+    .route a{display:flex;align-items:center;min-height:45px;gap:.45rem;padding:.5rem .64rem;background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:9px;text-decoration:none;font-size:.83rem;font-weight:670}
+    .route a:hover{border-color:var(--green);background:var(--soft)}
+    .route b{font-size:.72rem;color:var(--green);font-variant-numeric:tabular-nums}
+    .section{margin:0 0 24px;padding:clamp(17px,3.1vw,29px);border:1px solid var(--line);border-radius:var(--radius);background:var(--white);scroll-margin-top:12px}
+    .section h2{font-size:clamp(1.73rem,3.6vw,2.62rem);line-height:1.1;margin:.26rem 0 .53rem}
+    .lead{max-width:76ch;color:var(--muted);font-size:.94rem;margin-bottom:1rem}
+    .columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:clamp(13px,2.5vw,25px)}
+    .text{font-size:.94rem}
+    .text > p + p{margin-top:.62rem}
+    .source{color:var(--muted);font-size:.76rem;font-weight:600;overflow-wrap:anywhere}
+    .source::before{content:'';display:inline-block;width:.46rem;height:.46rem;border-radius:50%;margin-right:.34rem;background:#88ac8b;vertical-align:.02em}
+    details{margin-top:.7rem}
+    summary{cursor:pointer;color:var(--green);font-size:.87rem;font-weight:700}
+    details p{font-size:.85rem;color:var(--muted);margin:.36rem 0 .1rem}
+    .anatomy,.case,.context-card,.closing,.review,.end-card{border:1px solid var(--line);border-radius:12px;min-width:0}
+    .anatomy{background:var(--soft);padding:.84rem .88rem}
+    .anatomy h3,.context-card h3,.closing h3,.review h3{font-size:1rem;line-height:1.3}
+    .anatomy .hint{font-size:.82rem;color:var(--muted);margin:.27rem 0 .62rem}
+    .tabs{display:flex;flex-wrap:wrap;gap:.33rem}
+    .tab{border:1px solid var(--control);min-height:39px;padding:.39rem .56rem;border-radius:7px;background:var(--white);color:var(--ink);font-size:.76rem;font-weight:700;text-align:left;line-height:1.26}
+    .tab:hover{border-color:var(--green);background:var(--soft)}
+    .tab[aria-selected="true"]{background:var(--deep);border-color:var(--deep);color:#f8fff6}
+    .anatomy-panel{border-top:1px solid var(--line);margin-top:.66rem;padding-top:.62rem;min-height:6.35rem}
+    .anatomy-panel strong{display:block;font-size:.9rem}
+    .anatomy-panel p,.lens-panel p{margin:.3rem 0;font-size:.86rem}
+    .case{padding:.64rem .76rem;background:var(--soft);font-size:.88rem;margin-bottom:.85rem}
+    .domain-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.44rem;margin-bottom:.75rem}
+    .domain-tabs .tab{display:flex;align-items:center;gap:.42rem;min-height:53px;font-size:.82rem}
+    .domain-tabs .tab span:first-child{min-width:1.55rem;font-size:.7rem;font-variant-numeric:tabular-nums}
+    .domain-panel{border:1px solid var(--line);border-radius:12px;padding:clamp(13px,2.4vw,21px);min-width:0}
+    .domain-panel h3{font-size:clamp(1.36rem,3.2vw,1.91rem);line-height:1.14;margin:.37rem 0 .42rem}
+    .domain-panel .detail{margin:.56rem 0 .67rem;padding-left:1.16rem;font-size:.88rem}
+    .domain-panel li + li{margin-top:.37rem}
+    .scenario{font-size:.88rem;margin-top:.78rem;border-top:1px solid var(--line);padding-top:.67rem}
+    .row-ref{border-radius:9px;background:var(--paper);padding:.68rem .72rem}
+    .row-ref h4{font-size:.86rem;margin-bottom:.36rem}
+    .row-ref dl{display:grid;gap:.4rem}
+    .row-ref dt{font-size:.72rem;color:var(--green);font-weight:700}
+    .row-ref dd{font-size:.84rem}
+    .context-card,.closing{padding:.91rem .96rem;background:var(--paper);font-size:.88rem}
+    .context-card h3{margin-bottom:.38rem}
+    .context-card p + p{margin-top:.45rem}
+    .context-card ul{padding-left:1.18rem;margin:.49rem 0}
+    .context-card li + li{margin-top:.22rem}
+    .context-card .tabs{margin-top:.65rem}
+    .lens-panel{margin-top:.45rem;padding-top:.33rem;border-top:1px solid var(--line)}
+    .closing{background:var(--soft);margin-top:.88rem}
+    .closing h3{margin-bottom:.25rem}
+    .closing .source{margin-top:.32rem}
+    .quiz-panel{margin-top:.56rem}
+    .quiz-panel h3{font-size:clamp(1.26rem,2.6vw,1.78rem);line-height:1.22;margin:.35rem 0 .61rem}
+    .quiz-panel h3:focus,.feedback h4:focus{outline:none}
+    .bar{display:grid;grid-template-columns:repeat(var(--total),1fr);gap:4px;margin-bottom:.69rem}
+    .bar span{height:4px;border-radius:3px;background:var(--line)}
+    .bar .past{background:#84ad8a}.bar .current{background:var(--green)}
+    fieldset{margin:0;padding:0;border:0;min-width:0}
+    .choices{display:grid;gap:.43rem;margin-top:.6rem}
+    .choice{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.61rem;align-items:start;min-height:44px;padding:.61rem .69rem;border:1px solid var(--control);border-radius:8px;font-size:.9rem;cursor:pointer}
+    .choice input{margin:.18rem 0 0;accent-color:var(--green);width:1.03rem;height:1.03rem}
+    .choice:has(:checked),.choice:hover{background:var(--soft);border-color:var(--green)}
+    .choice.locked{cursor:default}
+    .choice.answer{border-color:var(--green);background:var(--soft)}
+    .choice.missed{background:var(--amber);border-color:#ba9860}
+    .choice small{display:block;margin-top:.18rem;color:var(--muted);font-weight:700}
+    .feedback,.end-card{padding:.7rem .8rem;border-radius:9px;margin-top:.67rem;background:var(--soft);border:1px solid var(--line);font-size:.87rem}
+    .feedback.revisit{background:var(--amber);border-color:#dbbd88;color:var(--brown)}
+    .feedback h4{font-size:.91rem;margin-bottom:.23rem}
+    .feedback .source{margin-top:.33rem}
+    .actions{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-top:.78rem}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:.26rem;min-height:44px;padding:.54rem .83rem;background:var(--green);border:1px solid var(--green);border-radius:8px;color:var(--white);font-size:.85rem;font-weight:710;line-height:1.24;text-decoration:none}
+    .button:hover:not(:disabled){background:var(--deep)}
+    .button:disabled{background:#e9eee7;border-color:var(--line);color:#536357}
+    .button.secondary{background:var(--white);color:var(--green)}
+    .button.secondary:hover{background:var(--soft)}
+    .review{background:var(--paper);padding:.65rem .79rem;margin-top:.65rem}
+    .review ul{padding-left:1.16rem;margin:.31rem 0;font-size:.88rem}
+    .review li + li{margin-top:.27rem}
+    footer{border-top:1px solid var(--line);padding-block:.72rem 1.2rem;color:var(--muted);font-size:.78rem}
+    @media(max-width:800px){.wrap{width:min(680px,calc(100% - 28px))}.hero,.columns{grid-template-columns:1fr}.hero{gap:.8rem}.hero-aside{padding-inline-start:0;border:0;border-top:1px solid #92bd9e83;padding-top:.64rem}.route,.domain-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.anatomy-panel{min-height:0}}
+    @media(max-width:390px){.wrap{width:calc(100% - 22px)}.mast,.route a{font-size:.75rem}.section{padding:13px}.domain-tabs .tab{font-size:.76rem}.domain-tabs .tab span:first-child{min-width:1.04rem}}
+    @media print{body{background:white}.wrap{width:100%}.hero{background:white;color:var(--ink);border:1px solid var(--line)}.hero::after,.route,.skip,.actions{display:none}.hero .kicker,.hero .intro,.hero-aside{color:var(--ink)}.section{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to the lesson</a>
+  <div class="wrap">
+    <header class="mast">
+      <p class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span> CI 881 · Instructional Theory</p>
+      <p>Week 6</p>
+    </header>
+    <main id="main" tabindex="-1">
+      <header class="hero">
+        <div>
+          <p class="kicker">Chapter 10 · Interactive summary</p>
+          <h1>The ID knowledge base</h1>
+          <p class="intro">See how the authors organize what instructional designers consider, then use the map to connect practical choices with the theories that support them.</p>
+        </div>
+        <div class="hero-aside">
+          <p class="kicker">After you read Chapter 10</p>
+          <p>Explore the summary and try the self-check at the end. You can revisit any section as you work. Nothing is submitted or graded.</p>
+        </div>
+      </header>
+      <nav class="route" aria-label="Chapter summary sections">
+        <a href="#structure"><b>01</b> Read the map</a>
+        <a href="#domains"><b>02</b> Explore six domains</a>
+        <a href="#use"><b>03</b> See it in use</a>
+        <a href="#self-check"><b>04</b> Check your learning</a>
+      </nav>
+
+      <section class="section" id="structure" aria-labelledby="structure-title">
+        <p class="kicker">01 · Structure</p>
+        <h2 id="structure-title">What the taxonomy organizes</h2>
+        <p class="lead">A taxonomy groups related ideas so you can see a field’s structure and the relationships among its parts.</p>
+        <div class="columns">
+          <div class="text">
+            <p>Chapter 10 brings together the theory, research, and practice discussed earlier in the book. It organizes instructional design (ID) into <strong>six domains</strong>, then links specific elements in each domain to their supporting theory bases.</p>
+            <p>The domains are categories, not a sequence of design steps. They can overlap and evolve as research, technology, and practice change.</p>
+            <details>
+              <summary>How did the authors build it?</summary>
+              <p>Some taxonomies derive categories from direct observation or statistical grouping. The authors built this one from their review of theory, research, and applications. Level 2 entries may be named concepts or actions a designer can take.</p>
+            </details>
+            <details>
+              <summary>Which theories are brought together?</summary>
+              <p>Chapters 2–9 cover general systems, communication, learning, early instructional, media, conditions-based, constructivist design, and performance improvement theory. A single element can draw on more than one.</p>
+            </details>
+            <p class="source">Chapter 10, pp. 167–170</p>
+          </div>
+          <div class="anatomy" id="row-tool" hidden>
+            <h3>Read a row from Table 10.4</h3>
+            <p class="hint">Select a label to see what it tells you.</p>
+            <div class="tabs" id="row-tabs" role="tablist" aria-label="Parts of the taxonomy"></div>
+            <div class="anatomy-panel" id="row-panel" role="tabpanel" tabindex="0"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="domains" aria-labelledby="domains-title">
+        <p class="kicker">02 · The knowledge base</p>
+        <h2 id="domains-title">Six lenses on one project</h2>
+        <p class="lead">Each domain asks a different question. Select a domain to see its main ideas, one row from the book, and a concrete example.</p>
+        <p class="case"><strong>One project:</strong> You are preparing a short workshop for academic advisors who will use a new appointment scheduling system.</p>
+        <div id="domain-tool" hidden>
+          <div class="domain-tabs" id="domain-tabs" role="tablist" aria-label="Six instructional design domains"></div>
+          <div class="domain-panel" id="domain-panel" role="tabpanel" tabindex="0"></div>
+        </div>
+      </section>
+
+      <section class="section" id="use" aria-labelledby="use-title">
+        <p class="kicker">03 · Application</p>
+        <h2 id="use-title">How designers and researchers use the map</h2>
+        <div class="columns">
+          <article class="context-card">
+            <h3>In practice: Justify a design choice</h3>
+            <p>Use the Level 2 entries to see possible design tasks, choices, or alternatives. Then look to a supporting theory for a reason a choice might fit your learners, goals, and setting.</p>
+            <p><strong>Same decision, different lenses:</strong> How should the workshop give feedback after a practice booking?</p>
+            <div id="lens-tool" hidden>
+              <div class="tabs" id="lens-tabs" role="tablist" aria-label="Ways to reason about feedback"></div>
+              <div class="lens-panel" id="lens-panel" role="tabpanel" tabindex="0"></div>
+            </div>
+            <p class="source">Table 10.4, p. 177; using the taxonomy in practice, p. 182</p>
+          </article>
+          <article class="context-card">
+            <h3>In research: Identify what to study</h3>
+            <p>An element can point to a <strong>variable to study</strong>. The map can help researchers organize prior work, replicate a finding in a different setting, or identify a gap worth investigating.</p>
+            <p><strong>Example:</strong> Feedback may be well studied in some settings. Do advisors learn to correct booking errors as well with automated feedback as with a coach’s feedback? The taxonomy helps frame that question. Data would be needed to answer it.</p>
+            <p class="source">Using the taxonomy as a research guide, pp. 182–183</p>
+          </article>
+        </div>
+        <div class="closing">
+          <h3>The authors’ closing point</h3>
+          <p>The authors argue that theory supported by empirical research is the strongest basis for design decisions. Expertise also requires technical and procedural skill, and the field advances through careful inquiry and creative practice.</p>
+          <p class="source">Final thoughts, pp. 183–184</p>
+        </div>
+      </section>
+
+      <section class="section" id="self-check" aria-labelledby="quiz-title">
+        <p class="kicker">04 · Review</p>
+        <h2 id="quiz-title">Quick Self-Check</h2>
+        <p class="lead">Try eight short questions covering the chapter’s main ideas. After each answer, you’ll see an explanation and where to look in the book.</p>
+        <div class="quiz-panel" id="quiz-panel" hidden></div>
+      </section>
+      <noscript><p class="section">To use the domain panels and self-check, open the downloaded HTML file in a browser with JavaScript enabled.</p></noscript>
+    </main>
+    <footer>Source: Richey, R. C., Klein, J. D., &amp; Tracey, M. W. (2011). <cite>The Instructional Design Knowledge Base: Theory, Research, and Practice</cite>. Routledge. Chapter 10, pp. 167–184. References use the printed page numbers; the advising workshop is an illustrative example.</footer>
+  </div>
+  <script>
+    (() => {
+      'use strict';
+      const $ = (id) => document.getElementById(id);
+      const esc = (v) => String(v).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+      const parts = [
+        { label: 'Domain', value: 'Instructional and Noninstructional Strategies', text: 'The domain names the area of ID knowledge. It appears in the table heading and tells you which kind of design question the table addresses.' },
+        { label: 'Level 1', value: 'Micro-Instructional Strategies', text: 'This is the broad category. It groups specific tactics that can be used within a lesson or learning activity.' },
+        { label: 'Level 2', value: 'Provide Feedback', text: 'This is a specific element within the broad category. When you select an element, look across the row for the theories that help explain it.' },
+        { label: 'Theory bases', value: 'Conditions-Based, Early Instructional, General Systems, and Learning', text: 'These are the supporting theory bases listed for “Provide Feedback.” Each can help explain the same element from a different perspective.' }
+      ];
+
+      const domains = [
+        {
+          label: 'Learners and Learning Processes', ref: 'Table 10.1 · pp. 171–172',
+          question: 'Who is learning, and how do they learn?',
+          points: [
+            ['What learners bring', 'Profile and background, interests and attitudes, and entry knowledge and skills. These help you decide what to assume and what to teach.'],
+            ['How learning occurs', 'The table brings together views of learning, cognitive processes such as organizing and recalling information, and factors that affect those processes.']
+          ],
+          example: 'Find out whether advisors already know how to interpret an availability calendar. New users may need that foundation before booking an appointment.',
+          row: ['Learner Entry Characteristics', 'Prerequisite Knowledge', 'Conditions-Based Theory']
+        },
+        {
+          label: 'Learning and Performance Contexts', ref: 'Table 10.2 · p. 173',
+          question: 'Where do people learn, and where must they use what they learn?',
+          points: [
+            ['Settings and types of context', 'The orienting context shapes expectations before instruction, the instructional context is where learning happens, and the transfer and performance context is where learners use the skill. Technology can shape these settings.'],
+            ['Conditions that matter', 'Group size, resources, and support can influence learning. Workplace resources, supervisor support, incentives, and similarity to the practice setting can affect performance and transfer.']
+          ],
+          example: 'Use a practice calendar that resembles the real system. Check whether advisors will have access to the same scheduling features after training.',
+          row: ['Contextual Factors Impacting Performance', 'Similarity Between Learning and Performance Contexts', 'Media Theory']
+        },
+        {
+          label: 'Content Structure and Sequence', ref: 'Table 10.3 · p. 175',
+          question: 'What is being taught, and in what order?',
+          points: [
+            ['Type and structure of content', 'Facts, concepts, principles, procedures, and problems call for different forms of organization. The language, visuals, amount, and complexity of the content affect what learners can process.'],
+            ['Reasons for an order', 'Sequence can follow prerequisites, the order of a task, or increasing complexity. In some environments, learners can choose the order.']
+          ],
+          example: 'Teach advisors to distinguish appointment types before asking them to choose time slots and handle booking conflicts.',
+          row: ['Basis of Sequencing', 'Hierarchy of Learning Tasks', 'Conditions-Based Theory']
+        },
+        {
+          label: 'Instructional and Noninstructional Strategies', ref: 'Table 10.4 · pp. 176–177',
+          question: 'Which actions will help learners or improve performance?',
+          points: [
+            ['Strategy functions and fit', 'Ask what an approach should accomplish, such as building skill or directing attention, and whether its characteristics fit the learning task.'],
+            ['Kinds of intervention', 'Macro strategies shape an overall approach; micro strategies include lesson tactics such as practice and feedback. The table also includes noninstructional performance improvements and strategies that facilitate learning.']
+          ],
+          example: 'Give feedback during booking practice. If the barrier is a confusing screen or an unavailable tool, changing the work environment may help more than extra instruction.',
+          row: ['Micro-Instructional Strategies', 'Provide Feedback', 'Learning Theory']
+        },
+        {
+          label: 'Media and Delivery Systems', ref: 'Table 10.5 · pp. 178–179',
+          question: 'Which media and delivery arrangements fit the instruction?',
+          points: [
+            ['Media and delivery', 'A medium carries or represents instruction, while a delivery system organizes how people receive and interact with it. For instance, an interactive simulation can be part of an online or an instructor-led workshop.'],
+            ['Selection factors', 'Consider the content, instructional strategy, interaction, and learner characteristics. Account for practical conditions such as cost, facilities, maintenance, and technical support.']
+          ],
+          example: 'A recording can show where to click. A practice system lets advisors make and correct a booking, which matters if independent performance is the goal.',
+          row: ['Major Elements of Media Selection Models', 'Interaction', 'Media Theory']
+        },
+        {
+          label: 'Designers and Design Processes', ref: 'Table 10.6 · pp. 180–181',
+          question: 'Who designs, what do they do, and how do they improve the design?',
+          points: [
+            ['Designer expertise and approaches', 'Designers communicate and involve stakeholders, reflect on their work, and draw on experience. The chapter describes several approaches, including systems, recursive, and participatory work.'],
+            ['Tasks and evaluation', 'Designers analyze people, tasks, and settings; make design and production decisions; and evaluate instruction or performance. The table also covers multimedia design and development.']
+          ],
+          example: 'Pilot the workshop with a small group of advisors. Use their booking errors and feedback to revise the practice activity before wider use.',
+          row: ['Types of Assessment and Evaluation', 'Formative Evaluation', 'General Systems Theory']
+        }
+      ];
+
+      const lenses = [
+        { label: 'Learning theory', text: 'Find the misunderstanding behind the error. If an advisor confuses two appointment types, explain the distinction and ask them to use it on the next booking.' },
+        { label: 'Conditions-based theory', text: 'Match feedback to the skill and the conditions needed to learn it. Give the advisor specific feedback after a practice attempt so they can apply it on another attempt.' }
+      ];
+
+      const questions = [
+        {
+          topic: 'Purpose of the taxonomy', section: 'structure',
+          question: 'What does the Chapter 10 taxonomy add to the earlier chapters on theory?',
+          choices: [
+            'An order for applying the theories at each stage of an ID project.',
+            'A way to organize the field and connect specific design elements with supporting theories.',
+            'A ranking of the theories based on which are most useful to practitioners.'
+          ], answer: 1,
+          why: 'The six domains organize areas of knowledge. The supporting theory bases help explain their elements without establishing a fixed order or ranking.', ref: 'pp. 167–170'
+        },
+        {
+          topic: 'How to read a row', section: 'structure',
+          question: 'In Table 10.3, “Hierarchy of Learning Tasks” appears under “Basis of Sequencing,” alongside “Conditions-Based.” What does “Conditions-Based” identify?',
+          choices: [
+            'One of the theories that supports this specific way of sequencing content.',
+            'The broader category that includes all the approaches to sequencing content.',
+            'Another sequencing option at the same level as “Hierarchy of Learning Tasks.”'
+          ], answer: 0,
+          why: '“Basis of Sequencing” is the broad Level 1 category, “Hierarchy of Learning Tasks” is a specific Level 2 element, and “Conditions-Based” is a supporting theory base.', ref: 'Table 10.3, p. 175; structure of the tables, pp. 169–170'
+        },
+        {
+          topic: 'Learners and contexts', section: 'domains',
+          question: 'Some advisors have never read an availability calendar. Even after practice, some will lack the necessary scheduling access at work. Which two lenses distinguish these issues?',
+          choices: [
+            'Two learner characteristics: prior knowledge and motivation.',
+            'Two content considerations: prerequisites and task sequence.',
+            'A learner entry characteristic and a condition in the performance context.'
+          ], answer: 2,
+          why: 'Reading a calendar is prior knowledge the learner brings. Access to a tool at work is a condition of the setting where the learner must perform.', ref: 'Tables 10.1 and 10.2, pp. 171–173'
+        },
+        {
+          topic: 'Content and strategies', section: 'domains',
+          question: 'You teach appointment types before booking procedures, then give feedback during practice. Which lenses most directly address the order and the lesson tactic?',
+          choices: [
+            'Content structure and sequence for the order; instructional strategies for the feedback.',
+            'Instructional strategies for the order; content structure and sequence for the feedback.',
+            'Learners and learning processes for the order; media and delivery systems for the feedback.'
+          ], answer: 0,
+          why: 'The order is a sequencing choice. Providing feedback is a micro-instructional strategy within the practice activity. One project routinely draws on several domains.', ref: 'Tables 10.3 and 10.4, pp. 175–177'
+        },
+        {
+          topic: 'Media, delivery, and design processes', section: 'domains',
+          question: 'You decide whether to use a simulation in a self-paced or instructor-led format, then pilot the workshop to see what to revise. Which lenses most directly address those two decisions?',
+          choices: [
+            'Learning and performance contexts for the delivery choice; content structure for the pilot.',
+            'Media and delivery systems for the delivery choice; designers and design processes for the formative evaluation.',
+            'Designers and design processes for the delivery choice; media and delivery systems for the formative evaluation.'
+          ], answer: 1,
+          why: 'The media and delivery table helps you compare arrangements for instruction. The design processes table includes formative evaluation, which informs revisions during development.', ref: 'Tables 10.5 and 10.6, pp. 178–181'
+        },
+        {
+          topic: 'Using the taxonomy in practice', section: 'use',
+          question: 'Several theory bases are listed for “Provide Feedback.” How can that help you choose what to do in the advising workshop?',
+          choices: [
+            'Use the first theory listed to select the feedback method for everyone.',
+            'Decide which feedback method is best by counting the theories listed.',
+            'Use the theories to consider different aspects of the same decision, then choose what fits the learners and the task.'
+          ], answer: 2,
+          why: 'A supporting theory gives you a rationale to consider, such as addressing a misunderstanding or helping learners apply feedback on a new attempt.', ref: 'Table 10.4, p. 177; using the taxonomy in practice, p. 182'
+        },
+        {
+          topic: 'Using the taxonomy in research', section: 'use',
+          question: 'A feedback approach works in a classroom. You want to know whether it also works in a self-paced simulation. What would the taxonomy help you do?',
+          choices: [
+            'Use the listed theory bases as evidence that the finding applies to both settings.',
+            'Identify the feedback variable and frame a study that tests it in the new setting.',
+            'Test any strategy from the same domain and call it a replication of the feedback study.'
+          ], answer: 1,
+          why: 'The taxonomy can identify a variable and help you recognize a question worth testing. Evidence from the new context is needed to answer it.', ref: 'Using the taxonomy as a research guide, pp. 182–183'
+        },
+        {
+          topic: 'Theory, evidence, and expertise', section: 'use',
+          question: 'According to the chapter’s conclusion, what is the strongest starting point for a design decision?',
+          choices: [
+            'A theory supported by empirical research, applied with practical design skill.',
+            'A theory that sounds plausible for the setting, even if its assumptions have not been examined.',
+            'The designer’s prior experience, with a related theory chosen later to justify the decision.'
+          ], answer: 0,
+          why: 'The authors emphasize empirically supported theory as the basis for decisions and treat research knowledge and practical expertise as complementary.', ref: 'Final thoughts, pp. 183–184'
+        }
+      ];
+
+      function setUpTabs(navId, panelId, items, render, numbered = false) {
+        const nav = $(navId);
+        const panel = $(panelId);
+        nav.innerHTML = items.map((item, index) => `<button type="button" class="tab" role="tab" id="${navId}-${index}" aria-controls="${panelId}" aria-selected="false" tabindex="-1">${numbered ? `<span aria-hidden="true">${String(index + 1).padStart(2,'0')}</span>` : ''}<span>${esc(item.label)}</span></button>`).join('');
+        const controls = Array.from(nav.querySelectorAll('button'));
+        const select = (index, focus = false) => {
+          controls.forEach((button, i) => {
+            button.setAttribute('aria-selected', String(i === index));
+            button.tabIndex = i === index ? 0 : -1;
+          });
+          panel.setAttribute('aria-labelledby', controls[index].id);
+          panel.innerHTML = render(items[index]);
+          if (focus) controls[index].focus();
+        };
+        controls.forEach((button, index) => button.addEventListener('click', () => select(index)));
+        nav.addEventListener('keydown', (event) => {
+          const index = controls.indexOf(event.target);
+          if (index < 0) return;
+          const next = {Home:0,End:controls.length-1,ArrowLeft:(index + controls.length - 1) % controls.length,ArrowRight:(index + 1) % controls.length}[event.key];
+          if (next === undefined) return;
+          event.preventDefault();
+          select(next, true);
+        });
+        select(0);
+      }
+
+      setUpTabs('row-tabs','row-panel',parts, ({value,text}) => `<strong>${esc(value)}</strong><p>${esc(text)}</p><p class="source">Table 10.4, pp. 176–177</p>`);
+      setUpTabs('domain-tabs','domain-panel',domains, (d) => `
+        <p class="source">${esc(d.ref)}</p>
+        <h3 class="serif">${esc(d.question)}</h3>
+        <div class="columns">
+          <ul class="detail">${d.points.map(([name,text])=>`<li><strong>${esc(name)}:</strong> ${esc(text)}</li>`).join('')}</ul>
+          <aside class="row-ref" aria-label="Example taxonomy row">
+            <h4>One row from the book</h4>
+            <dl>${d.row.map((value,i)=>`<div><dt>${['Level 1 · Broad category','Level 2 · Specific element','One supporting theory'][i]}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>
+          </aside>
+        </div>
+        <p class="scenario"><strong>In the advising workshop:</strong> ${esc(d.example)}</p>`, true);
+      setUpTabs('lens-tabs','lens-panel',lenses, ({text}) => `<p>${esc(text)}</p>`);
+      ['row-tool','domain-tool','lens-tool'].forEach(id => { $(id).hidden = false; });
+
+      const quiz = $('quiz-panel');
+      const all = questions.map((_, i) => i);
+      const fresh = () => ({ view:'intro', queue:all, step:0, selected:null, checked:false, results:[], firstScore:null });
+      let state = fresh();
+      const missed = () => all.filter(i => state.results[i] === false);
+      const correct = () => state.results.filter(x => x === true).length;
+
+      function render(moveFocus = false) {
+        if (state.view === 'intro') {
+          quiz.innerHTML = '<button class="button" type="button" data-action="start">Start self-check</button>';
+          if (moveFocus) quiz.querySelector('button').focus();
+          return;
+        }
+        if (state.view === 'done') {
+          const todo = missed();
+          quiz.innerHTML = `
+            <div class="end-card">
+              <p class="kicker">Self-check complete</p>
+              <h3 class="serif" id="quiz-view-title" tabindex="-1">First pass: ${state.firstScore} of ${all.length}</h3>
+              <p>${correct() === all.length ? 'You’ve reviewed all eight main ideas.' : 'Use the suggestions below to review anything you missed. You can leave here or try those questions again.'}${correct() !== state.firstScore ? ` Current result: ${correct()} of ${all.length}.` : ''}</p>
+            </div>
+            ${todo.length ? `<div class="review"><h3>What to revisit</h3><ul>${todo.map(i=>`<li><a href="#${questions[i].section}">${esc(questions[i].topic)}</a> · ${esc(questions[i].ref)}</li>`).join('')}</ul></div>` : ''}
+            <div class="actions">${todo.length ? '<button class="button" type="button" data-action="retry">Try missed questions again</button>' : ''}<button class="button secondary" type="button" data-action="reset">Start over</button><a class="button secondary" href="#structure">Back to the summary</a></div>`;
+        } else {
+          const q = questions[state.queue[state.step]];
+          const number = state.step + 1;
+          const last = number === state.queue.length;
+          const good = state.selected === q.answer;
+          quiz.innerHTML = `
+            <div class="bar" aria-hidden="true" style="--total:${state.queue.length}">${state.queue.map((_,i)=>`<span class="${i<state.step?'past':i===state.step?'current':''}"></span>`).join('')}</div>
+            <p class="kicker">${state.firstScore === null ? 'Question' : 'Review question'} ${number} of ${state.queue.length}</p>
+            <h3 class="serif" id="quiz-view-title" tabindex="-1">${esc(q.question)}</h3>
+            <form id="answer-form">
+              <fieldset>
+                <legend class="sr-only">Choose one answer.</legend>
+                <div class="choices">${q.choices.map((choice,i)=>{
+                  const status = state.checked ? (i === q.answer ? ' answer' : i === state.selected ? ' missed' : '') : '';
+                  return `<label class="choice${state.checked?' locked':''}${status}"><input type="radio" name="choice" value="${i}"${state.selected===i?' checked':''}${state.checked?' disabled':''}><span>${esc(choice)}${status?`<small>${status===' answer'?'Correct answer':'Your answer'}</small>`:''}</span></label>`;
+                }).join('')}</div>
+              </fieldset>
+              ${state.checked ? `<div class="feedback${good?'':' revisit'}"><h4 id="feedback-title" tabindex="-1">${good?'Correct':'Review this one'}</h4><p>${esc(q.why)}</p><p class="source">In the book: ${esc(q.ref)}</p></div>` : ''}
+              <div class="actions">
+                <button class="button" id="quiz-next" type="submit"${state.selected===null?' disabled':''}>${state.checked ? (last?'See my results':'Next question') : 'Check answer'}</button>
+              </div>
+            </form>`;
+        }
+        if (moveFocus) {
+          const heading = state.checked ? $('feedback-title') : $('quiz-view-title');
+          if (heading) heading.focus();
+        }
+      }
+
+      quiz.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-action]');
+        if (!button) return;
+        if (button.dataset.action === 'reset') { state = fresh(); }
+        else if (button.dataset.action === 'start') { state.view = 'questions'; }
+        else if (button.dataset.action === 'retry') {
+          state = {...state, view:'questions', queue:missed(), step:0, selected:null, checked:false};
+        } else return;
+        render(true);
+      });
+      quiz.addEventListener('change', (event) => {
+        if (event.target.name !== 'choice' || state.checked) return;
+        state.selected = Number(event.target.value);
+        $('quiz-next').disabled = false;
+      });
+      quiz.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (state.view !== 'questions' || state.selected === null) return;
+        if (!state.checked) {
+          const index = state.queue[state.step];
+          state.results[index] = state.selected === questions[index].answer;
+          state.checked = true;
+        } else if (state.step + 1 < state.queue.length) {
+          state.step += 1;
+          state.selected = null;
+          state.checked = false;
+        } else {
+          if (state.firstScore === null) state.firstScore = correct();
+          state.view = 'done';
+          state.checked = false;
+        }
+        render(true);
+      });
+
+      render();
+      quiz.hidden = false;
+    })();
+  </script>
+</body>
+</html>
